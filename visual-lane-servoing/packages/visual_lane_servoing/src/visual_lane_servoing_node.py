@@ -140,7 +140,7 @@ class LaneServoingNode(DTROS):
                 self.loginfo(
                     "Using your hands if you are working with a real robot, or the joystick if "
                     "you are working with the simulator. Turn the robot (in place), to the left "
-                    "then to the right by about 30deg on each side. Press [Go] when done."
+                    "then to the right by about 30deg on each side. Press [Go] when done. danh"
                 )
                 return
 
