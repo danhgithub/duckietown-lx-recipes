@@ -111,7 +111,8 @@ class LaneServoingNode(DTROS):
                 # NOTE: this is needed to trigger the agent and get another image back
                 self.publish_command([0, 0])
             else:
-                self.loginfo("Given calibration ignored as the test is running locally.")
+                self.loginfo("Given calibration ignored as the test is running locally. danh")
+                self.steer_max = loaded["calibration_value"] # danh
         else:
             self.logwarn(
                 "No calibration value received. If you are running this on a real robot "
