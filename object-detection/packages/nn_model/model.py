@@ -109,7 +109,7 @@ class Wrapper:
 class Model:
     def __init__(self, weight_file_path: str):
         super().__init__()
-
+        print("dtn ***************** weight_file_path = ",weight_file_path,"******************")
         model = torch.hub.load("/yolov5", "custom", path=weight_file_path, source="local")
         model.eval()
 
