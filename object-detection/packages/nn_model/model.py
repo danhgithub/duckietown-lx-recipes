@@ -112,7 +112,7 @@ class Model:
         print("dtn ***************** weight_file_path = ",weight_file_path,"******************")
         model = torch.hub.load("/yolov5", "custom", path=weight_file_path, source="local")
         model.eval()
-
+        print("dtn *****************")
         use_fp16: bool = JETSON_FP16 and get_device_hardware_brand() == DeviceHardwareBrand.JETSON_NANO
 
         if use_fp16:
