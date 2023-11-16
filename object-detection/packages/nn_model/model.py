@@ -112,8 +112,9 @@ class Model:
         super().__init__()
         print("dtn ***************** weight_file_path = ",weight_file_path,"******************")
         #model = torch.hub.load("/yolov5", "custom", path=weight_file_path, source="local")
-        model = torch.hub.load("/home/yolov5", "custom", path=weight_file_path, source="local")
+        #model = torch.hub.load("/home/yolov5", "custom", path=weight_file_path, source="local")
         #model = torch.hub.load("danhgithub/yolov5", "custom", path=weight_file_path, source="github")
+        model = torch.hub.load("danhgithub/danhgithub/yolov5", "custom", path=weight_file_path, source="github")
         model.eval()
         print("dtn *****************")
         use_fp16: bool = JETSON_FP16 and get_device_hardware_brand() == DeviceHardwareBrand.JETSON_NANO
