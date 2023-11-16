@@ -111,7 +111,8 @@ class Model:
     def __init__(self, weight_file_path: str):
         super().__init__()
         print("dtn ***************** weight_file_path = ",weight_file_path,"******************")
-        model = torch.hub.load("/yolov5", "custom", path=weight_file_path, source="local")
+        #model = torch.hub.load("/yolov5", "custom", path=weight_file_path, source="local")
+        model = torch.hub.load("/home/yolov5", "custom", path=weight_file_path, source="local")
         #model = torch.hub.load("danhgithub/yolov5", "custom", path=weight_file_path, source="github")
         model.eval()
         print("dtn *****************")
