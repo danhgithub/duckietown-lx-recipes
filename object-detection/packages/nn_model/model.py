@@ -89,6 +89,7 @@ class Wrapper:
                     print(f"Found a different model on DCSS.")
                 print(f"Downloading model '{model_name}' from DCSS...")
                 # download model
+                print("################ dtn ############### dcss_weight_file_path =",dcss_weight_file_path,"weight_file_path =",weight_file_path)
                 download = storage.download(dcss_weight_file_path, weight_file_path, force=True)
                 download.join()
                 assert os.path.exists(weight_file_path)
@@ -110,8 +111,8 @@ class Model:
     def __init__(self, weight_file_path: str):
         super().__init__()
         print("dtn ***************** weight_file_path = ",weight_file_path,"******************")
-        #model = torch.hub.load("/yolov5", "custom", path=weight_file_path, source="local")
-        model = torch.hub.load("danhgithub/yolov5", "custom", path=weight_file_path, source="github")
+        model = torch.hub.load("/yolov5", "custom", path=weight_file_path, source="local")
+        #model = torch.hub.load("danhgithub/yolov5", "custom", path=weight_file_path, source="github")
         model.eval()
         print("dtn *****************")
         use_fp16: bool = JETSON_FP16 and get_device_hardware_brand() == DeviceHardwareBrand.JETSON_NANO
