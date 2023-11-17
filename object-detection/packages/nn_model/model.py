@@ -84,7 +84,8 @@ class Wrapper:
 
             # do not download if already up-to-date
             print(f"DEBUG: Comparing [{local_etag}] <> [{remote_etag}]")
-            if local_etag != remote_etag:
+            #if local_etag != remote_etag:
+            if 1 != 2:   # dtn
                 if local_etag:
                     print(f"Found a different model on DCSS.")
                 print(f"Downloading model '{model_name}' from DCSS...")
