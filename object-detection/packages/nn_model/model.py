@@ -132,7 +132,7 @@ class Model:
         #results.show() 
 
         
-        print("dtn *****************9 " + os.getcwd())
+        print("dtn *****************9 " + os.getcwd() +" IMAGE_SIZE=" + IMAGE_SIZE + " ASSETS_DIR=" + ASSETS_DIR)
         use_fp16: bool = JETSON_FP16 and get_device_hardware_brand() == DeviceHardwareBrand.JETSON_NANO
 
         if use_fp16:
