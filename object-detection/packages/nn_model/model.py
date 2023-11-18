@@ -118,8 +118,8 @@ class Model:
         #model = torch.hub.load("danhgithub/yolov5d1", "custom", path=weight_file_path, source="github")
         model.eval()
         #img = '/code/catkin_ws/src/object-detection/assets/nn_models/danh/yolov5/1000.jpg'
-        img = '1000.jpg'
-        results = model(img)
+        #img = '1000.jpg'
+        #results = model(img)
         #results.show() 
         print("dtn *****************6 " + os.getcwd())
         use_fp16: bool = JETSON_FP16 and get_device_hardware_brand() == DeviceHardwareBrand.JETSON_NANO
