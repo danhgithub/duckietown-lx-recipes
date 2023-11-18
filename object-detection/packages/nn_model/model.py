@@ -1,6 +1,7 @@
 import os
 from typing import Tuple
 import cv2  # dtn
+import PIL  #dtn
 from PIL import Image  #dtn
 import numpy as np
 
