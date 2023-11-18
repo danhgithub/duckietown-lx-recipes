@@ -107,7 +107,7 @@ class Wrapper:
         img = '../code/catkin_ws/src/object-detection/assets/nn_models/danh/yolov5/1000.jpg'
         
         #img = '1000.jpg'
-        results = self.model(img)
+        results = self.model.infer(img)
         #################
     
     def predict(self, image: np.ndarray) -> Tuple[list, list, list]:
