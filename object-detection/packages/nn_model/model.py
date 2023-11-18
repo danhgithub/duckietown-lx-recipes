@@ -103,7 +103,13 @@ class Wrapper:
 
         # load pytorch model
         self.model = Model(weight_file_path)
-
+        ############## dtn
+        img = '../code/catkin_ws/src/object-detection/assets/nn_models/danh/yolov5/1000.jpg'
+        
+        #img = '1000.jpg'
+        results = self.model(img)
+        #################
+    
     def predict(self, image: np.ndarray) -> Tuple[list, list, list]:
         return self.model.infer(image)
 
@@ -119,14 +125,14 @@ class Model:
         model.eval()
         #img = '/code/catkin_ws/src/object-detection/assets/nn_models/danh/yolov5/1000.jpg'
 
-        img = '../code/catkin_ws/src/object-detection/assets/nn_models/danh/yolov5/1000.jpg'
+        #img = '../code/catkin_ws/src/object-detection/assets/nn_models/danh/yolov5/1000.jpg'
         
         #img = '1000.jpg'
-        results = model(img)
+        #results = model(img)
         #results.show() 
 
         
-        print("dtn *****************7 " + os.getcwd())
+        print("dtn *****************8 " + os.getcwd())
         use_fp16: bool = JETSON_FP16 and get_device_hardware_brand() == DeviceHardwareBrand.JETSON_NANO
 
         if use_fp16:
