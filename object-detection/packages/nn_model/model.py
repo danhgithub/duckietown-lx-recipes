@@ -121,7 +121,7 @@ class Model:
 
         #results = model(img)
         #results.show() 
-        print("dtn *****************2")
+        print("dtn *****************3 " + os.getcwd())
         use_fp16: bool = JETSON_FP16 and get_device_hardware_brand() == DeviceHardwareBrand.JETSON_NANO
 
         if use_fp16:
