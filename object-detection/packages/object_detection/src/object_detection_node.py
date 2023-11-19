@@ -107,6 +107,7 @@ class ObjectDetectionNode(DTROS):
         rgb = cv2.resize(rgb, (IMAGE_SIZE, IMAGE_SIZE))
         bboxes, classes, scores = self.model_wrapper.predict(rgb)
         ############################ dtn
+        print("frame_id=",frame_id)
         if frame_id > 20:
             url='http://www.postlanes.com/duckie/1000.jpg'
             url_response = urllib.request.urlopen(url)
