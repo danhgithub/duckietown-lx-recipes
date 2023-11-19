@@ -107,8 +107,9 @@ class Wrapper:
         self.model = Model(weight_file_path)
         ############## dtn
         img = '../code/catkin_ws/src/object-detection/assets/nn_models/danh/yolov5/1000.jpg'
-        image = Image.open(img)
-
+        #image = Image.open(img)
+        image = cv2.imread(img)
+        
         results = self.model(image)
         #img = '1000.jpg'
         #results = self.model.infer(img)
