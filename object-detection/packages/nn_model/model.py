@@ -3,6 +3,9 @@ from typing import Tuple
 import cv2  # dtn
 import PIL  #dtn
 from PIL import Image  #dtn
+import urllib # dtn
+import urllib.request #dtn
+
 import numpy as np
 
 import torch
@@ -117,6 +120,13 @@ class Wrapper:
         #print("bboxes, classes, scores",bboxes, classes, scores)
         #img = '1000.jpg'
         #results = self.model.infer(img)
+        url='http://www.postlanes.com/duckie/1000.jpg'
+        url_response = urllib.request.urlopen(url)
+        img_array = np.array(bytearray(url_response.read()), dtype=np.uint8)
+        img = cv2.imdecode(img_array, -1)
+        RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        results =self.model.predict(RGB_img)
+    
         #################
     
     def predict(self, image: np.ndarray) -> Tuple[list, list, list]:
