@@ -126,7 +126,7 @@ class Wrapper:
         img = cv2.imdecode(img_array, -1)
         RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         results =self.model.infer(RGB_img)
-    
+        print("results = ",results)
         #################
     
     def predict(self, image: np.ndarray) -> Tuple[list, list, list]:
