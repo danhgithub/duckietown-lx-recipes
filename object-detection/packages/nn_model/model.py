@@ -109,8 +109,8 @@ class Wrapper:
         img = '../code/catkin_ws/src/object-detection/assets/nn_models/danh/yolov5/1000.jpg'
         #image = Image.open(img)
         image = cv2.imread(img)
-        
-        results = self.model(image)
+        image = cv2.resize(image, (416, 416))
+        bboxes, classes, scores  = self.model.infer(image)
         #img = '1000.jpg'
         #results = self.model.infer(img)
         #################
