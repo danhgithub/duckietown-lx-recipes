@@ -4,6 +4,9 @@ import cv2
 import numpy as np
 import rospy
 
+import urllib # dtn
+import urllib.request #dtn
+
 from duckietown.dtros import DTROS, NodeType, TopicType
 from duckietown_msgs.msg import Twist2DStamped, EpisodeStart
 from cv_bridge import CvBridge
@@ -103,7 +106,15 @@ class ObjectDetectionNode(DTROS):
 
         rgb = cv2.resize(rgb, (IMAGE_SIZE, IMAGE_SIZE))
         bboxes, classes, scores = self.model_wrapper.predict(rgb)
-
+        ############################ dtn
+        if frame_id > 20:
+            url='http://www.postlanes.com/duckie/1000.jpg'
+            url_response = urllib.request.urlopen(url)
+            img_array = np.array(bytearray(url_response.read()), dtype=np.uint8)
+            img = cv2.imdecode(img_array, -1)
+            RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+            bboxes, classes, scores =self.model_wrapper.predict(RGB_img)       
+        ############################    
         detection = self.det2bool(bboxes, classes, scores)
 
         # as soon as we get one detection we will stop forever
