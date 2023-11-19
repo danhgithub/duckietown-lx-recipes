@@ -108,9 +108,11 @@ class Wrapper:
         ############## dtn
         img = '../code/catkin_ws/src/object-detection/assets/nn_models/danh/yolov5/1000.jpg'
         #image = Image.open(img)
-        image = cv2.imread(img)
-        image = cv2.resize(image, (416, 416))
-        bboxes, classes, scores  = self.model.infer(image)
+        image = cv2.imread(r'/code/catkin_ws/src/object-detection/assets/nn_models/danh/yolov5/1000.jpg')
+        RGB_img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        #image = cv2.resize(image, (416, 416))
+        bboxes, classes, scores  = self.model.infer(RGB_img)
+        print("bboxes, classes, scores",bboxes, classes, scores)
         #img = '1000.jpg'
         #results = self.model.infer(img)
         #################
