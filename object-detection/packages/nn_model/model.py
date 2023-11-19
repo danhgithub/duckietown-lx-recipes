@@ -125,7 +125,7 @@ class Wrapper:
         img_array = np.array(bytearray(url_response.read()), dtype=np.uint8)
         img = cv2.imdecode(img_array, -1)
         RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        results =self.model.predict(RGB_img)
+        results =self.model(RGB_img)
     
         #################
     
