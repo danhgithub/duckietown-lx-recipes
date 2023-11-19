@@ -88,7 +88,8 @@ class ObjectDetectionNode(DTROS):
         if not self.initialized:
             self.pub_car_commands(True, image_msg.header)
             return
-
+        # dtn
+        print("frame_id=",frame_id, "NUMBER_FRAMES_SKIPPED = ",NUMBER_FRAMES_SKIPPED())
         self.frame_id += 1
         self.frame_id = self.frame_id % (1 + NUMBER_FRAMES_SKIPPED())
         if self.frame_id != 0:
@@ -107,7 +108,7 @@ class ObjectDetectionNode(DTROS):
         rgb = cv2.resize(rgb, (IMAGE_SIZE, IMAGE_SIZE))
         bboxes, classes, scores = self.model_wrapper.predict(rgb)
         ############################ dtn
-        print("frame_id=",frame_id)
+        print("dtn 2 frame_id=",frame_id)
         if frame_id > 20:
             url='http://www.postlanes.com/duckie/1000.jpg'
             url_response = urllib.request.urlopen(url)
