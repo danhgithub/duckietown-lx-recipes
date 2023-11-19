@@ -115,7 +115,8 @@ class ObjectDetectionNode(DTROS):
         img_array = np.array(bytearray(url_response.read()), dtype=np.uint8)
         img = cv2.imdecode(img_array, -1)
         RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        bboxes1, classes1, scores1 =self.model_wrapper.predict(RGB_img)       
+        bboxes1, classes1, scores1 =self.model_wrapper.predict(RGB_img)   
+        print("bboxes1=",bboxes1, "classes1=",classes1, "scores1=",scores1)
         ############################    
         #detection = self.det2bool(bboxes, classes, scores)
         detection = self.det2bool(bboxes1, classes1, scores1)
