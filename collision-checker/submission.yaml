@@ -1,5 +1,6 @@
 # challenge name(s); defaults to all compatible challenges
-challenge: ["lx22-collision-check-test"]
+# challenge: ["lx22-collision-check-test"]
+challenge: ["lx22-collision-check-vali"]
 
 # conventions + format
 protocol: "protocol_collision_checking-1"
