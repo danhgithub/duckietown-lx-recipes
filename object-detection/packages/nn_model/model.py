@@ -1,10 +1,10 @@
 import os
 from typing import Tuple
-import cv2  # dtn
-import PIL  #dtn
-from PIL import Image  #dtn
-import urllib # dtn
-import urllib.request #dtn
+#import cv2  # dtn
+#import PIL  #dtn
+#from PIL import Image  #dtn
+#import urllib # dtn
+#import urllib.request #dtn
 
 import numpy as np
 
@@ -89,13 +89,13 @@ class Wrapper:
 
             # do not download if already up-to-date
             print(f"DEBUG: Comparing [{local_etag}] <> [{remote_etag}]")
-            #if local_etag != remote_etag:
-            if 1 != 2:   # dtn
+            if local_etag != remote_etag:
+            #if 1 != 2:   # dtn
                 if local_etag:
                     print(f"Found a different model on DCSS.")
                 print(f"Downloading model '{model_name}' from DCSS...")
                 # download model
-                print("################ dtn ############### dcss_weight_file_path =",dcss_weight_file_path,"weight_file_path =",weight_file_path)
+                #print("################ dtn ############### dcss_weight_file_path =",dcss_weight_file_path,"weight_file_path =",weight_file_path)
                 download = storage.download(dcss_weight_file_path, weight_file_path, force=True)
                 download.join()
                 assert os.path.exists(weight_file_path)
@@ -120,13 +120,13 @@ class Wrapper:
         #print("bboxes, classes, scores",bboxes, classes, scores)
         #img = '1000.jpg'
         #results = self.model.infer(img)
-        url='http://www.postlanes.com/duckie/1000.jpg'
-        url_response = urllib.request.urlopen(url)
-        img_array = np.array(bytearray(url_response.read()), dtype=np.uint8)
-        img = cv2.imdecode(img_array, -1)
-        RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        results =self.model.infer(RGB_img)
-        print("results = ",results)
+        # dtn url='http://www.postlanes.com/duckie/1000.jpg'
+        #url_response = urllib.request.urlopen(url)
+        #img_array = np.array(bytearray(url_response.read()), dtype=np.uint8)
+        #img = cv2.imdecode(img_array, -1)
+        #RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        #results =self.model.infer(RGB_img)
+        #print("results = ",results)
         #################
     
     def predict(self, image: np.ndarray) -> Tuple[list, list, list]:
@@ -136,7 +136,7 @@ class Wrapper:
 class Model:
     def __init__(self, weight_file_path: str):
         super().__init__()
-        print("dtn ***************** weight_file_path = ",weight_file_path,"******************")
+        #print("dtn ***************** weight_file_path = ",weight_file_path,"******************")
         model = torch.hub.load("/yolov5", "custom", path=weight_file_path, source="local")
         #model = torch.hub.load("/home/yolov5", "custom", path=weight_file_path, source="local")
         #model = torch.hub.load("danhgithub/yolov5", "custom", path=weight_file_path, source="github")
@@ -151,9 +151,9 @@ class Model:
         #results.show() 
 
         
-        print("dtn *****************10 " + os.getcwd() +" IMAGE_SIZE=")
-        print(IMAGE_SIZE)
-        print(" ASSETS_DIR=",ASSETS_DIR)
+        #print("dtn *****************10 " + os.getcwd() +" IMAGE_SIZE=")
+        #print(IMAGE_SIZE)
+        #print(" ASSETS_DIR=",ASSETS_DIR)
         use_fp16: bool = JETSON_FP16 and get_device_hardware_brand() == DeviceHardwareBrand.JETSON_NANO
 
         if use_fp16:
