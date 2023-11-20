@@ -110,16 +110,16 @@ class ObjectDetectionNode(DTROS):
         bboxes, classes, scores = self.model_wrapper.predict(rgb)
         ############################ dtn
         print("dtn 2 frame_id=",self.frame_id)
-        url='http://www.postlanes.com/duckie/1000.jpg'
-        url_response = urllib.request.urlopen(url)
-        img_array = np.array(bytearray(url_response.read()), dtype=np.uint8)
-        img = cv2.imdecode(img_array, -1)
-        RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        bboxes1, classes1, scores1 =self.model_wrapper.predict(RGB_img)   
-        print("bboxes1=",bboxes1, "classes1=",classes1, "scores1=",scores1)
+        #url='http://www.postlanes.com/duckie/1000.jpg'
+        #url_response = urllib.request.urlopen(url)
+        #img_array = np.array(bytearray(url_response.read()), dtype=np.uint8)
+        #img = cv2.imdecode(img_array, -1)
+        #RGB_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        #bboxes1, classes1, scores1 =self.model_wrapper.predict(RGB_img)   
+        print("bboxes=",bboxes, "classes=",classes, "scores=",scores)
         ############################    
-        #detection = self.det2bool(bboxes, classes, scores)
-        detection = self.det2bool(bboxes1, classes1, scores1)
+        detection = self.det2bool(bboxes, classes, scores)
+        #detection = self.det2bool(bboxes1, classes1, scores1)
         # as soon as we get one detection we will stop forever
         if detection:
             self.log("Duckie pedestrian detected... stopping")
